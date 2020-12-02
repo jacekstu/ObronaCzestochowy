@@ -52,22 +52,22 @@ while True:
 	if timer <= 0:
 		if len(villain_group) <= 5:
 			# select the position of the villan on the x - axis
-			# is the position x free - 
-			key_dt = position_x_lt[random.randint(0,4)]
-			idx = random.randint(0,6)
-			villain = Villain(idx, key_dt)
-			villain_group.add(villain)
+			# we set the max random int to the length of the list, since we gonna be removing items from it
+			if len(position_x_lt) > 0:
+				pos_x = random.randint(0,len(position_x_lt)-1)
+				# Here we randomnly select a picture for our villain sprite
+				idx = random.randint(0,6)
+				villain = Villain(idx, position_x_lt[pos_x])
+				# Delete  that x_postion from the lsit, so it can't be used y another sprite
+				position_x_lt.pop(pos_x)
 		timer = 3
-
-
-############## chujowe rzwiazanie ZROB TAK, ZE ODEJMUJESZ TE WARTOSCI Z LISTY, A POTEM JE Z POWROTEM DODAJESZ, INACZEJ EDZEI CHUJNIA Z GRZYBNIA!
-
-
 
 	for bullet in bullet_group:
 		gets_hit = pygame.sprite.spritecollide(bullet, villain_group, True)
 		if gets_hit:
-			# change the value for this pos-x key to True so it can be selected again
+			# change the value for this pos_x key to True so it can be selected again
+			# Add the x position back to the list of available postions
+			position_x_lt.append(gets_hit[0].pos_x)
 			bullet_group.remove(bullet)
 
 
