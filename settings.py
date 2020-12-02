@@ -47,6 +47,7 @@ VILLAIN_LT.append(load_img((os.path.join(IMG_PATH, "binkowski.png")), (120,100))
 
 BULLET_IMG = load_img(os.path.join(IMG_PATH, "mandarynka.png"), (25,21))
 PUNCH_SND = pygame.mixer.Sound(os.path.join(SND_PATH, "uderzenie.wav")) 
+FAKEN = pygame.mixer.Sound(os.path.join(SND_PATH, "faken.wav"))
 
 GAME_TITLE = "The Oftenhide Defence"
 

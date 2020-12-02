@@ -68,6 +68,8 @@ while True:
 		if gets_hit:
 			# change the value for this pos_x key to True so it can be selected again
 			# Add the x position back to the list of available postions
+			if gets_hit[0].sound == 6:
+				FAKEN.play()
 			position_x_lt.append(gets_hit[0].pos_x)
 			bullet_group.remove(bullet)
 

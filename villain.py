@@ -13,6 +13,7 @@ class Villain(pygame.sprite.Sprite):
 		self.speed = -1
 		self.max_up = self.rect.y + 50
 		self.max_down = self.rect.y - 50
+		self.sound = idx
 
 	def update(self):
 		self.rect.y += self.speed
