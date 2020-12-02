@@ -7,7 +7,7 @@ from villain import Villain
 
 
 # All postion available for villains on the x axis
-position_x_lt = [0,150,350, 450, 750]
+position_x_lt = [100,250,380, 510, 630, 770, 870, 950, 1130]
 
 # Initialize the library
 pygame.init()
@@ -50,7 +50,7 @@ while True:
 	# Creating villains everytime the timer is equal to 0
 	timer -= dt
 	if timer <= 0:
-		if len(villain_group) <= 5:
+		if len(villain_group) <= 9:
 			# select the position of the villan on the x - axis
 			# we set the max random int to the length of the list, since we gonna be removing items from it
 			if len(position_x_lt) > 0:
@@ -58,6 +58,7 @@ while True:
 				# Here we randomnly select a picture for our villain sprite
 				idx = random.randint(0,6)
 				villain = Villain(idx, position_x_lt[pos_x])
+				villain_group.add(villain)
 				# Delete  that x_postion from the lsit, so it can't be used y another sprite
 				position_x_lt.pop(pos_x)
 		timer = 3
@@ -86,5 +87,3 @@ while True:
 
 	# get delat time
 	dt = clock.tick(60) / 1000
-
-
