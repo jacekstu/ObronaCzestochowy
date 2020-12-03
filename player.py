@@ -1,6 +1,7 @@
 import pygame
 from settings import *
 from bullet import Bullet
+import random
 
 class Player(pygame.sprite.Sprite):
 
@@ -27,4 +28,6 @@ class Player(pygame.sprite.Sprite):
 		self.animating = True
 
 	def shoot(self):
-		return Bullet(pygame.mouse.get_pos()[0] + 63,HEIGHT- 120)
+		gravity_value = GRAVITY_LT[random.randint(0,len(GRAVITY_LT)-1)]
+		print(gravity_value)
+		return Bullet(pygame.mouse.get_pos()[0] + 63,HEIGHT- 120, gravity_value)

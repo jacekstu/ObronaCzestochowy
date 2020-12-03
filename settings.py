@@ -2,6 +2,8 @@ import pygame, os, sys
 
 pygame.mixer.init()
 
+GRAVITY_LT = [0.2, 0.1]
+
 WIDTH = 1500
 HEIGHT = 800
 WINDOW = (WIDTH, HEIGHT)
