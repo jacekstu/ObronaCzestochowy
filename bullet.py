@@ -1,6 +1,7 @@
 import pygame
 from settings import *
 import random
+from animation import Animation
 
 class Bullet(pygame.sprite.Sprite):
 	
@@ -17,6 +18,6 @@ class Bullet(pygame.sprite.Sprite):
 		self.rect.x -= 3
 		self.gravity += self.gravity_value
 
-		if self.rect.y >= HEIGHT - 50:
+		if self.rect.y >= HEIGHT - 70:
 			# zrobi animacje i play the sound rozijanej mandarynki
 			self.kill()

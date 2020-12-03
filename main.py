@@ -4,12 +4,13 @@ from settings import *
 from bullet import Bullet
 from player import Player
 from villain import Villain
+from animation import Animation
 
 
 # All postion available for villains on the x axis
 position_x_lt = [100,250,380, 510, 630, 770, 870, 950, 1130]
 
-# Initialize the library
+# Initialize the library/
 pygame.init()
 pygame.mouse.set_visible(False)
 
@@ -28,8 +29,6 @@ pygame.display.set_caption(GAME_TITLE)
 animated_sprties = pygame.sprite.Group()
 player = Player(WIDTH/2, HEIGHT/2 - 180)
 animated_sprties.add(player)
-
-
 
 # Other groups
 bullet_group = pygame.sprite.Group()
@@ -66,6 +65,12 @@ while True:
 	for bullet in bullet_group:
 		gets_hit = pygame.sprite.spritecollide(bullet, villain_group, True)
 		if gets_hit:
+			# Create a new splash animation, it will be added to the
+			# animated sprite group and removed from there
+			# Once the animation has been completed
+			new_splash = Animation(SPLASHING_FRUIT_LT2,gets_hit[0].pos_x, gets_hit[0].pos_y)
+			animated_sprties.add(new_splash)
+			new_splash.animate()
 			# change the value for this pos_x key to True so it can be selected again
 			# Add the x position back to the list of available postions
 			if gets_hit[0].sound == 6:

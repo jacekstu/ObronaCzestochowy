@@ -31,12 +31,30 @@ PLAYER_SPRITE_HEIGHT = 150
 PLAYER_SPRITE_WIDTH = 90
 PLAYER_SPRTIES_LT = []
 VILLAIN_LT = []
+SPLASHING_FRUIT_LT = []
+SPLASHING_FRUIT_LT2 = []
 
 for i in range(1,10):
 	PLAYER_SPRTIES_LT.append(load_img(
 		os.path.join(IMG_PATH, str(i) + ".png"),
 		 (PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT)
 	))
+
+# Load splashing fruit images
+for i in range(1,8):
+	SPLASHING_FRUIT_LT.append(load_img(
+		os.path.join(IMG_PATH, "m" + str(i) + ".png"),
+		(25,21)
+	))
+
+# Load splashing fruit images
+for i in range(1,8):
+	SPLASHING_FRUIT_LT2.append(load_img(
+		os.path.join(IMG_PATH, "s" + str(i) + ".png"),
+		(65,61)
+	))
+
+
 
 VILLAIN_LT.append(load_img((os.path.join(IMG_PATH, "kaczynski.png")), (60,60)))
 VILLAIN_LT.append(load_img((os.path.join(IMG_PATH, "don_kasjo.png")), (90,90)))

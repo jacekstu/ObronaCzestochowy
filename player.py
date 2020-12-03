@@ -29,5 +29,4 @@ class Player(pygame.sprite.Sprite):
 
 	def shoot(self):
 		gravity_value = GRAVITY_LT[random.randint(0,len(GRAVITY_LT)-1)]
-		print(gravity_value)
 		return Bullet(pygame.mouse.get_pos()[0] + 63,HEIGHT- 120, gravity_value)
