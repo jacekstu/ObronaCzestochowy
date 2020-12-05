@@ -33,6 +33,7 @@ animated_sprties.add(player)
 # Other groups
 bullet_group = pygame.sprite.Group()
 villain_group = pygame.sprite.Group()
+smashing_oranges_group = pygame.sprite.Group()
 
 # The main loop of the game
 while True:
@@ -45,6 +46,7 @@ while True:
 		if event.type == pygame.MOUSEBUTTONDOWN:
 			player.animate()
 			bullet_group.add(player.shoot())
+			#print(bullet_group.sprites()[0].rect.x)
 
 	# Creating villains everytime the timer is equal to 0
 	timer -= dt
@@ -78,18 +80,28 @@ while True:
 			position_x_lt.append(gets_hit[0].pos_x)
 			bullet_group.remove(bullet)
 
+	for bullet in bullet_group.sprites():
+		if bullet.is_smashed:
+			smashed = Animation(SPLASHING_FRUIT_LT,bullet.rect.x-1, BOTTOM_LINE_FOR_ORANGES, False)
+			smashing_oranges_group.add(smashed)
+			smashed.animate()
 
 	screen.fill(BLACK)
 
-	# Draw elements from the groups
+	# Draw elements from the groups#	
+	smashing_oranges_group.draw(screen)
 	animated_sprties.draw(screen)
 	villain_group.draw(screen)
 	bullet_group.draw(screen)
+
 	# Update the elements from the groups
 	animated_sprties.update()
 	villain_group.update()
 	bullet_group.update()
+	smashing_oranges_group.update()
 	# Update the main display
+	if len(smashing_oranges_group) > 5:
+		smashing_oranges_group.remove(smashing_oranges_group.sprites()[0:2])
 	pygame.display.flip()
 
 	# get delat time

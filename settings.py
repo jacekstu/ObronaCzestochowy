@@ -26,7 +26,6 @@ def terminate_game():
 IMG_PATH = os.path.join(os.environ.get('HOME'), "assets/imgs")
 SND_PATH = os.path.join(os.environ.get('HOME'), "assets/snds")
 
-
 PLAYER_SPRITE_HEIGHT = 150
 PLAYER_SPRITE_WIDTH = 90
 PLAYER_SPRTIES_LT = []
@@ -55,6 +54,8 @@ for i in range(1,8):
 	))
 
 
+BOTTOM_LINE_FOR_ORANGES = HEIGHT - 50
+
 
 VILLAIN_LT.append(load_img((os.path.join(IMG_PATH, "kaczynski.png")), (60,60)))
 VILLAIN_LT.append(load_img((os.path.join(IMG_PATH, "don_kasjo.png")), (90,90)))
@@ -69,5 +70,6 @@ BULLET_IMG = load_img(os.path.join(IMG_PATH, "mandarynka.png"), (25,21))
 PUNCH_SND = pygame.mixer.Sound(os.path.join(SND_PATH, "uderzenie.wav")) 
 FAKEN = pygame.mixer.Sound(os.path.join(SND_PATH, "faken.wav"))
 
+SMASHED_ORANGE = load_img(os.path.join(IMG_PATH, 'm5.png'), (25,21))
 GAME_TITLE = "The Oftenhide Defence"
 

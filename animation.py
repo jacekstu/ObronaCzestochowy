@@ -2,9 +2,10 @@ import pygame
 from settings import *
 
 class Animation(pygame.sprite.Sprite):
-	def __init__(self, imgs_lt, x, y):
+	def __init__(self, imgs_lt, x, y, kill=True):
 		super().__init__()
 		self.lt = imgs_lt
+		self.kill_em = kill
 		self.animating = False
 		self.current_sprite = 0
 		self.image = self.lt[self.current_sprite]
@@ -17,7 +18,8 @@ class Animation(pygame.sprite.Sprite):
 			if self.current_sprite >= len(self.lt):
 				self.current_sprite = 0
 				self.animating = False
-				self.kill()
+				if self.kill_em == True:
+					self.kill()
 
 			self.image = self.lt[int(self.current_sprite)]
 
