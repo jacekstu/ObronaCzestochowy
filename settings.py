@@ -43,7 +43,7 @@ for i in range(1,10):
 for i in range(1,8):
 	SPLASHING_FRUIT_LT.append(load_img(
 		os.path.join(IMG_PATH, "m" + str(i) + ".png"),
-		(25,21)
+		(35,30)
 	))
 
 # Load splashing fruit images
@@ -54,7 +54,7 @@ for i in range(1,8):
 	))
 
 
-BOTTOM_LINE_FOR_ORANGES = HEIGHT - 50
+BOTTOM_LINE_FOR_ORANGES = HEIGHT - 55
 
 
 VILLAIN_LT.append(load_img((os.path.join(IMG_PATH, "kaczynski.png")), (60,60)))
@@ -66,10 +66,12 @@ VILLAIN_LT.append(load_img((os.path.join(IMG_PATH, "lempart.png")), (100,100)))
 VILLAIN_LT.append(load_img((os.path.join(IMG_PATH, "binkowski.png")), (120,100)))
 
 
-BULLET_IMG = load_img(os.path.join(IMG_PATH, "mandarynka.png"), (25,21))
+BULLET_IMG = load_img(os.path.join(IMG_PATH, "mandarynka.png"), (20,20))
+#BULLET_IMG = load_img(os.path.join(IMG_PATH, "test.png"), (25,21))
 PUNCH_SND = pygame.mixer.Sound(os.path.join(SND_PATH, "uderzenie.wav")) 
 FAKEN = pygame.mixer.Sound(os.path.join(SND_PATH, "faken.wav"))
 
-SMASHED_ORANGE = load_img(os.path.join(IMG_PATH, 'm5.png'), (25,21))
+
+SMASHED_ORANGE = load_img(os.path.join(IMG_PATH, 'm5.png'), (33,28))
 GAME_TITLE = "The Oftenhide Defence"
 
