@@ -27,7 +27,7 @@ class Bullet(pygame.sprite.Sprite):
 
 
 	def update(self):
-		self.angle += 10
+		self.angle += 3
 		self.image, self.rect = self.rotate(self.original_surface, self.angle)
 		self.rect.y += self.gravity
 		self.rect.x -= 3

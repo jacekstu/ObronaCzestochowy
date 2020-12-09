@@ -6,8 +6,11 @@ from player import Player
 from villain import Villain
 from animation import Animation
 
+# Add night
+# create a filter of the same size as the display
+filter = pygame.surface.Surface((WIDTH, HEIGHT))
 
-# All postion available for villains on the x axis
+# All postion available for villains on the x axis	
 position_x_lt = [100,250,380, 510, 630, 770, 870, 950, 1130]
 
 # Initialize the library/
@@ -86,8 +89,9 @@ while True:
 			smashing_oranges_group.add(smashed)
 			smashed.animate()
 
-	screen.fill(BLACK)
 
+
+	#screen.fill((0,0,0))
 	# Draw elements from the groups#	
 	smashing_oranges_group.draw(screen)
 	animated_sprties.draw(screen)
@@ -102,6 +106,12 @@ while True:
 	# Update the main display
 	if len(smashing_oranges_group) > 5:
 		smashing_oranges_group.remove(smashing_oranges_group.sprites()[0:2])
+
+	filter.fill(pygame.color.Color('Grey'))
+	#filter.blit(light, pygame.mouse.get_pos())
+	# EFEKT PREDKOSCI - nie mozna robic screen.fill((0,0,0))
+	screen.blit(filter, (0,0), special_flags=pygame.BLEND_MULT) #--> DAJE SUPER EFEKT ROZMYCIA
+	#screen.blit(filter, (0,0), special_flags=pygame.BLEND_RGBA_SUB)
 	pygame.display.flip()
 
 	# get delat time
