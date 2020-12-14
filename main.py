@@ -5,10 +5,12 @@ from bullet import Bullet
 from player import Player
 from villain import Villain
 from animation import Animation
+from rocket import Rocket
 
 # Add night
 # create a filter of the same size as the display
 filter = pygame.surface.Surface((WIDTH, HEIGHT))
+
 
 # All postion available for villains on the x axis	
 position_x_lt = [100,250,380, 510, 630, 770, 870, 950, 1130]
@@ -24,7 +26,6 @@ timer = 5
 dt = 0
 
 # Create the main display window
-screen = pygame.display.set_mode(WINDOW)
 pygame.display.set_caption(GAME_TITLE)
 
 
@@ -37,6 +38,8 @@ animated_sprties.add(player)
 bullet_group = pygame.sprite.Group()
 villain_group = pygame.sprite.Group()
 smashing_oranges_group = pygame.sprite.Group()
+rocket_group = pygame.sprite.Group()
+
 
 # The main loop of the game
 while True:
@@ -50,6 +53,11 @@ while True:
 			player.animate()
 			bullet_group.add(player.shoot())
 			#print(bullet_group.sprites()[0].rect.x)
+
+	# attack or not
+	attack = random.choice([random.randrange(30)])
+	if attack == 2:
+		rocket_group.add(Rocket())
 
 	# Creating villains everytime the timer is equal to 0
 	timer -= dt
@@ -89,29 +97,28 @@ while True:
 			smashing_oranges_group.add(smashed)
 			smashed.animate()
 
-
-
-	#screen.fill((0,0,0))
+	screen.fill((0,0,0))
 	# Draw elements from the groups#	
 	smashing_oranges_group.draw(screen)
 	animated_sprties.draw(screen)
 	villain_group.draw(screen)
 	bullet_group.draw(screen)
+	rocket_group.draw(screen)
 
 	# Update the elements from the groups
 	animated_sprties.update()
 	villain_group.update()
 	bullet_group.update()
+	rocket_group.update()
+
 	smashing_oranges_group.update()
 	# Update the main display
 	if len(smashing_oranges_group) > 5:
 		smashing_oranges_group.remove(smashing_oranges_group.sprites()[0:2])
 
 	filter.fill(pygame.color.Color('Grey'))
-	#filter.blit(light, pygame.mouse.get_pos())
-	# EFEKT PREDKOSCI - nie mozna robic screen.fill((0,0,0))
-	screen.blit(filter, (0,0), special_flags=pygame.BLEND_MULT) #--> DAJE SUPER EFEKT ROZMYCIA
-	#screen.blit(filter, (0,0), special_flags=pygame.BLEND_RGBA_SUB)
+	# EFEKT PREDKOSCI - nie mozna robic screen.fill((0,0,0)
+	#screen.blit(filter, (0,0), special_flags=pygame.BLEND_MULT) ##--> DAJE SUPER EFEKT ROZMYCIA
 	pygame.display.flip()
 
 	# get delat time

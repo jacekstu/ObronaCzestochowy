@@ -8,6 +8,7 @@ WIDTH = 1500
 HEIGHT = 800
 WINDOW = (WIDTH, HEIGHT)
 FPS = 60
+screen = pygame.display.set_mode(WINDOW)
 
 # COLORS
 BLACK = (0,0,0)
@@ -73,4 +74,5 @@ FAKEN = pygame.mixer.Sound(os.path.join(SND_PATH, "faken.wav"))
 
 SMASHED_ORANGE = load_img(os.path.join(IMG_PATH, 'm5.png'), (33,28))
 GAME_TITLE = "The Oftenhide Defence"
-
+HEALTHBAR_IMG = load_img(os.path.join(IMG_PATH, "healthbar_icon.png"), (60,60))
+ROCKET_IMG = load_img(os.path.join(IMG_PATH, "piorun.png"), (30,50))
