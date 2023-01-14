@@ -1,2 +1,2 @@
 # ObronaCzestochowy
-Simple game made in Python
+Simple 2D game made in Python
